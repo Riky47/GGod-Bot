@@ -30,7 +30,7 @@ client.on('message', msg => {
                 var msgArr2 = msg.content.split('/')
                 msg.channel.send("```" + `${msgArr2[1]}` + "``` \n" + `@everyone`);
                 if (msgArr2[2].toLowerCase() == "/sep") {
-                    const attachment = new Attachment('https://www.nedrp.gov.in/sibsagar/images/loading.gif');
+                    const attachment = new Attachment('https://i.imgur.com/wt6A4eG.gif');
                     channel.send(attachment);
                 }
                 msg.delete();
