@@ -23,11 +23,11 @@ client.on('message', msg => {
 
     if (msg.content.startsWith(">")){
         if (msg.content.toLowerCase() === '>cmds') {
-            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` >Cmds -- commands list\n >Ann< -- new announcement\n >Invite -- invete link```");
+            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` >Cmds   -- commands list\n >Ann/   -- new announcement\n >Invite -- invete link```");
         }
         else if (msg.content.toLowerCase().startsWith(">ann<")) {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
-                var msgArr2 = msg.split('<')
+                var msgArr2 = msg.split('/')
                 msg.channel.send("```" + `${msgArr2[1]}` + "``` \n\n " + `@everyone`);
                 msg.delete();
             }
