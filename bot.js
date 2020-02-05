@@ -29,7 +29,7 @@ client.on('message', msg => {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
                 var msgArr2 = msg.content.split('/')
                 msg.channel.send("```" + `${msgArr2[1]}` + "``` \n" + `@everyone`);
-                const attachment2 = new Attachment('https://i.imgur.com/wt6A4eG.gif');
+                const attachment2 = new Attachment('https://i.imgur.com/Is3xXHQ.gif');
                 msg.channel.send(attachment2);                
                 msg.delete();
             }
