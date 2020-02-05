@@ -23,12 +23,16 @@ client.on('message', msg => {
 
     if (msg.content.startsWith(">")){
         if (msg.content.toLowerCase() === '>cmds') {
-            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` >Cmds   -- commands list\n >Ann/   -- new announcement\n >Invite -- invete link```");
+            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` >Cmds       -- commands list\n >Ann/../Sep     -- new announcement\n >Invite        -- invete link```");
         }
         else if (msg.content.toLowerCase().startsWith(">ann/")) {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
                 var msgArr2 = msg.content.split('/')
                 msg.channel.send("```" + `${msgArr2[1]}` + "``` \n" + `@everyone`);
+                if (msgArr2[2].toLowerCase() == "/sep") {
+                    const attachment = new Attachment('https://www.nedrp.gov.in/sibsagar/images/loading.gif');
+                    channel.send(attachment);
+                }
                 msg.delete();
             }
             else
