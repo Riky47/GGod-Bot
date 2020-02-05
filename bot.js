@@ -23,11 +23,12 @@ client.on('message', msg => {
 
     if (msg.content.startsWith(">")){
         if (msg.content.toLowerCase() === '>cmds') {
-            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` >Cmds \n >Announcement \n >Invite```");
+            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` >Cmds -- commands list\n >Ann< -- new announcement\n >Invite -- invete link```");
         }
-        else if (msg.content.toLowerCase() === '>announcement') {
+        else if (msg.content.toLowerCase() === '>ann<') {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
-                msg.channel.send("```" + `${msg}` + "``` \n\n /spoiler " + `${msg.mentions.everyone}`);
+                var msgArr2 = msg.split('<')
+                msg.channel.send("```" + `${msgArr2[1]}` + "``` \n\n " + `@everyone`);
                 msg.delete();
             }
             else
@@ -36,7 +37,7 @@ client.on('message', msg => {
             }
         }
         else if (msg.content.toLowerCase().startsWith('>invite')) {
-            msg.channel.send(`${msg.member}, \n here your invite: https://discord.gg/V6qjthw`);
+            msg.channel.send(`${msg.member}, \n here your invite: https://discord.gg/BV6Rvxy`);
         }
         else {
             msg.channel.send(`${msg.member}, Invalid command! **>cmds**`);
