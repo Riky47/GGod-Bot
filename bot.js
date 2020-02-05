@@ -31,7 +31,7 @@ client.on('message', msg => {
                 msg.channel.send("```" + `${msgArr2[1]}` + "``` \n" + `@everyone`);
                 if (msgArr2[2].toLowerCase() == "/sep") {
                     const attachment = new Attachment('https://i.imgur.com/wt6A4eG.gif');
-                    channel.send(attachment);
+                    msg.channel.send(attachment);
                 }
                 msg.delete();
             }
