@@ -23,7 +23,7 @@ client.on('message', msg => {
 
     if (msg.content.startsWith(">")){
         if (msg.content.toLowerCase() === '>cmds') {
-            msg.channel.send(`${msg.member}, Here the commands list: \n` + "```>Cmds \n >Announcement \n >Invite```");
+            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` >Cmds \n >Announcement \n >Invite```");
         }
         else if (msg.content.toLowerCase() === '>announcement') {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
