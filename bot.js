@@ -28,7 +28,7 @@ client.on('message', msg => {
         else if (msg.content.toLowerCase().startsWith(">ann/")) {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
                 var msgArr2 = msg.content.split('/')
-                msg.channel.send("```" + `${msgArr2[1]}` + "``` \n\n " + `@everyone`);
+                msg.channel.send("```" + `${msgArr2[1]}` + "``` \n" + `@everyone`);
                 msg.delete();
             }
             else
