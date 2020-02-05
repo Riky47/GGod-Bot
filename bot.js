@@ -13,8 +13,8 @@ client.on('guildMemberAdd', member => {
     const channel2 = member.guild.channels.find(ch => ch.name === 'rules');
     if (!channel) return;
     channel.send(`Welcome to the server, ${member}! Check out our ${channel2} and enjoy!`);
-    const attachment = new Attachment('https://i.imgur.com/8CwCrUN.jpg');
-    channel.send(attachment);
+    const attachment1 = new Attachment('https://i.imgur.com/8CwCrUN.jpg');
+    channel.send(attachment1);
 });
 
 client.on('message', msg => {
@@ -23,15 +23,15 @@ client.on('message', msg => {
 
     if (msg.content.startsWith(">")){
         if (msg.content.toLowerCase() === '>cmds') {
-            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` - v1.0 - \n >Cmds         -- commands list\n >Ann/../line  -- new announcement\n >Invite       -- invete link```");
+            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` **v1.0** \n >Cmds         -- commands list\n >Ann/../line  -- new announcement\n >Invite       -- invete link```");
         }
         else if (msg.content.toLowerCase().startsWith(">ann/")) {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
                 var msgArr2 = msg.content.split('/')
                 msg.channel.send("```" + `${msgArr2[1]}` + "``` \n" + `@everyone`);
                 if (msgArr2[2].toLowerCase() === "/line") {
-                    const attachment = new Attachment('https://i.imgur.com/wt6A4eG.gif');
-                    msg.channel.send(attachment);
+                    const attachment2 = new Attachment('https://i.imgur.com/wt6A4eG.gif');
+                    msg.channel.send(attachment2);
                 }
                 msg.delete();
             }
