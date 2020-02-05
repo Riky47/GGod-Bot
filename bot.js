@@ -23,16 +23,14 @@ client.on('message', msg => {
 
     if (msg.content.startsWith(">")){
         if (msg.content.toLowerCase() === '>cmds') {
-            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` **v1.0** \n >Cmds         -- commands list\n >Ann/../line  -- new announcement\n >Invite       -- invete link```");
+            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` **v1.0** \n >Cmds     -- commands list\n >Ann/..   -- new announcement\n >Invite   -- invete link```");
         }
         else if (msg.content.toLowerCase().startsWith(">ann/")) {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
                 var msgArr2 = msg.content.split('/')
                 msg.channel.send("```" + `${msgArr2[1]}` + "``` \n" + `@everyone`);
-                if (msgArr2[2].toLowerCase() === "/line") {
-                    const attachment2 = new Attachment('https://i.imgur.com/wt6A4eG.gif');
-                    msg.channel.send(attachment2);
-                }
+                const attachment2 = new Attachment('https://i.imgur.com/wt6A4eG.gif');
+                msg.channel.send(attachment2);                
                 msg.delete();
             }
             else
