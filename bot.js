@@ -23,9 +23,22 @@ client.on('message', msg => {
 
     if (msg.content.startsWith(">")){
         if (msg.content.toLowerCase() === '>cmds') {
-            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` **v1.0** \n >Cmds     -- commands list\n >Ann£..   -- new normal announcement\n >HAnn£..  -- new highlighted announcement\n >Invite   -- invete link```");
+            msg.channel.send(`${msg.member}, Here the commands list: \n` + "``` **v1.0** \n >Cmds     -- commands list\n >Ann£..   -- new normal announcement\n >HAnn£..  -- new highlighted announcement\n >Anne£..  -- new normal announcement with everyone mention\n >HAnne£.. -- new highlighted announcement with everyone mention\n >Invite   -- invete link```");
         }
         else if (msg.content.toLowerCase().startsWith(">ann£")) {
+            if (msg.member.hasPermission('ADMINISTRATOR')) { 
+                var msgArr2 = msg.content.split('£')
+                msg.channel.send(`${msgArr2[1]}` + "\n");
+                const attachment2 = new Attachment('https://i.imgur.com/Is3xXHQ.gif');
+                msg.channel.send(attachment2);                
+                msg.delete();
+            }
+            else
+            {
+                msg.channel.send(`${msg.member} You can't use this command!`);
+            }
+        }
+        else if (msg.content.toLowerCase().startsWith(">anne£")) {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
                 var msgArr2 = msg.content.split('£')
                 msg.channel.send(`${msgArr2[1]}` + "\n" + `@everyone`);
@@ -39,6 +52,19 @@ client.on('message', msg => {
             }
         }
         else if (msg.content.toLowerCase().startsWith(">hann£")) {
+            if (msg.member.hasPermission('ADMINISTRATOR')) { 
+                var msgArr2 = msg.content.split('£')
+                msg.channel.send("```" + `${msgArr2[1]}` + "```\n");
+                const attachment2 = new Attachment('https://i.imgur.com/Is3xXHQ.gif');
+                msg.channel.send(attachment2);                
+                msg.delete();
+            }
+            else
+            {
+                msg.channel.send(`${msg.member} You can't use this command!`);
+            }
+        }
+        else if (msg.content.toLowerCase().startsWith(">hanne£")) {
             if (msg.member.hasPermission('ADMINISTRATOR')) { 
                 var msgArr2 = msg.content.split('£')
                 msg.channel.send("```" + `${msgArr2[1]}` + "```\n" + `@everyone`);
